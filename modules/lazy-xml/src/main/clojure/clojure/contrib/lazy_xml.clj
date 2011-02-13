@@ -89,7 +89,7 @@
       (let [sibs (siblings events)]
         ;(prn :elem elem)
         (cons
-          (struct element (:name elem) (:attrs elem) (drop-last sibs))
+          (struct element (:name elem) (:attrs elem) (remove seq? sibs))
           (lazy-seq (last sibs))))))
 
 (defn parse-trim
