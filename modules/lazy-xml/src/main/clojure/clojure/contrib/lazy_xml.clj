@@ -48,7 +48,7 @@
   ([s] (if has-pull
          (parse-seq-pull s)
          (parse-seq s startparse-sax)))
-  ([s startparse] (parse-seq s startparse Integer/MAX_VALUE))
+  ([s startparse] (parse-seq s startparse 1000))
   ([s startparse queue-size]
    (let [s (if (instance? Reader s) (InputSource. ^Reader s) s)
          f (fn filler-func [fill]
