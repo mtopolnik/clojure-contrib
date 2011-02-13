@@ -24,7 +24,7 @@
          (.getNamespaceUri xpp i)]))))
 
 (defn- attr-hash [xpp]
-  (into {} (into (ns-decs xpp) (attrs xpp))))
+  (into {} (concat (ns-decs xpp) (attrs xpp))))
 
 (defn- pull-step [xpp]
   (let [step (fn [^XmlPullParser xpp]
